@@ -11,6 +11,7 @@ import { useContext } from "react";
 import { BsBookmark } from "react-icons/bs";
 import { IoOpen } from "react-icons/io5";
 import UserContext from "./UserContext";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
 
 export default function CardComponent({ company }) {
   const { setCompany } = useContext(UserContext);
@@ -61,8 +62,8 @@ export default function CardComponent({ company }) {
           variant="outline"
           rounded="20px"
         >
-          <BsBookmark />
-          Save
+          <MdOutlineRemoveRedEye />
+          View
         </Button>
         <Button size="xs" rounded="20px" onClick={handleClick}>
           Apply Now

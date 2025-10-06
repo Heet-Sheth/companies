@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Flex } from "@chakra-ui/react";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import PanelArea from "./components/PanelArea";
+import { useState } from "react";
+import CardPanel from "./components/CardPanel";
+import UserContext from "./components/UserContext";
 
 function App() {
+  const [company, setCompany] = useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Flex direction="column" gap="40px" padding="30px" className="App">
+      <UserContext.Provider
+        value={{ company: company, setCompany: setCompany }}
+      >
+        {company ? (
+          <CardPanel currentId={company} />
+        ) : (
+          <>
+            <NavBar />
+            <PanelArea />
+          </>
+        )}
+      </UserContext.Provider>
+    </Flex>
   );
 }
 

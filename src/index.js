@@ -6,8 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 import { ColorModeProvider } from "./components/ui/color-mode";
 import { SearchProvider } from "./components/SearchContext";
+import { createTheme } from "react-data-table-component";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <ChakraProvider value={defaultSystem}>

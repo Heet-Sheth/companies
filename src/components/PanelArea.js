@@ -4,7 +4,7 @@ import TableView from "./TableView";
 
 export default function PanelArea({ setCurrentCompany }) {
   return (
-    <Tabs.Root variant="enclosed" defaultValue="table-view" mt="300px">
+    <Tabs.Root variant="enclosed" defaultValue="card-view" mt="300px">
       <Tabs.List>
         <Tabs.Trigger value="card-view">Card</Tabs.Trigger>
         <Tabs.Trigger value="table-view">Table</Tabs.Trigger>

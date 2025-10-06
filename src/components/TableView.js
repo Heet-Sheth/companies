@@ -1,10 +1,12 @@
 import { data } from "autoprefixer";
 import { useContext, useEffect, useState } from "react";
-import DataTable from "react-data-table-component";
+import DataTable, { createTheme } from "react-data-table-component";
 import companiesData from "./DB/companiesData.json";
 import SearchContext from "./SearchContext";
-import { Box, Flex, Image, Spinner } from "@chakra-ui/react";
+import { Box, chakra, Flex, Image, Spinner } from "@chakra-ui/react";
 import { Avatar } from "@ark-ui/react";
+import UserContext from "./UserContext";
+import { useColorMode } from "./ui/color-mode";
 
 const avatarImage = (row) => {
   return (
@@ -14,6 +16,20 @@ const avatarImage = (row) => {
     </Avatar.Root>
   );
 };
+
+createTheme("chakraLight", {
+  text: { primary: "#2D3748", secondary: "#4A5568" },
+  background: { default: "#ffffff" },
+  context: { background: "#EDF2F7", text: "#000000" },
+  divider: { default: "#E2E8F0" },
+});
+
+createTheme("chakraDark", {
+  text: { primary: "#E2E8F0", secondary: "#A0AEC0" },
+  background: { default: "#1A202C" },
+  context: { background: "#2D3748", text: "#ffffff" },
+  divider: { default: "#4A5568" },
+});
 
 export default function TableView() {
   const columns = [
@@ -32,11 +48,13 @@ export default function TableView() {
     },
   ];
 
+  const { setCompany } = useContext(UserContext);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { debouncedQuery } = useContext(SearchContext);
+  const { colorMode } = useColorMode();
 
-  const filteredCompanies = data
+  const filteredCompanies = data.length
     ? data.filter((c) => {
         const q = debouncedQuery.toLowerCase();
         return (
@@ -78,6 +96,9 @@ export default function TableView() {
           progressPending={loading}
           progressComponent={<Spinner size="lg" />}
           pagination
+          onRowClicked={(row) => setCompany(row.id)}
+          highlightOnHover
+          theme={colorMode === "dark" ? "chakraDark" : "chakraLight"}
         />
       </Box>
     </Flex>

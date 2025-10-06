@@ -1,4 +1,4 @@
-import { SimpleGrid } from "@chakra-ui/react";
+import { Center, SimpleGrid, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import CardComponent from "./CardComponent";
 import companiesData from "./DB/companiesData.json";
@@ -30,7 +30,7 @@ export default function CardView({ setCurrentCompany }) {
     fetchData();
   }, []);
 
-  const filteredCompanies = data
+  const filteredCompanies = data.length
     ? data.filter((c) => {
         const q = debouncedQuery.toLowerCase();
         return (
@@ -42,9 +42,13 @@ export default function CardView({ setCurrentCompany }) {
 
   return (
     <SimpleGrid minChildWidth="300px" gap="30px">
-      {filteredCompanies.map((company) => (
-        <CardComponent key={company.id} company={company} />
-      ))}
+      {filteredCompanies.length ? (
+        filteredCompanies.map((company) => (
+          <CardComponent key={company.id} company={company} />
+        ))
+      ) : (
+        <Text mt="64px">There are no records to display</Text>
+      )}
     </SimpleGrid>
   );
 }

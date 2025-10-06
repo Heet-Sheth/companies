@@ -1,9 +1,8 @@
-import { data } from "autoprefixer";
 import { useContext, useEffect, useState } from "react";
 import DataTable, { createTheme } from "react-data-table-component";
 import companiesData from "./DB/companiesData.json";
 import SearchContext from "./SearchContext";
-import { Box, chakra, Flex, Image, Spinner } from "@chakra-ui/react";
+import { Box, Flex, Spinner } from "@chakra-ui/react";
 import { Avatar } from "@ark-ui/react";
 import UserContext from "./UserContext";
 import { useColorMode } from "./ui/color-mode";

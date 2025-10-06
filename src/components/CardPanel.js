@@ -12,7 +12,7 @@ import {
   Badge,
   Flex,
 } from "@chakra-ui/react";
-import React, { useContext, useEffect, useEffectEvent, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GrClose } from "react-icons/gr";
 import UserContext from "./UserContext";
 import companiesData from "./DB/companiesData.json";

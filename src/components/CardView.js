@@ -1,4 +1,4 @@
-import { Center, SimpleGrid, Text } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import CardComponent from "./CardComponent";
 import companiesData from "./DB/companiesData.json";

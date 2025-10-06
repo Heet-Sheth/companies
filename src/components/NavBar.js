@@ -1,7 +1,6 @@
 import { Flex, Heading, Input, InputGroup } from "@chakra-ui/react";
 import { ColorModeButton } from "./ui/color-mode";
 import { IoMdSearch } from "react-icons/io";
-import { TiBusinessCard } from "react-icons/ti";
 import SearchContext from "./SearchContext";
 import { useContext } from "react";
 

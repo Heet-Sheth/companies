@@ -30,13 +30,15 @@ export default function CardView({ setCurrentCompany }) {
     fetchData();
   }, []);
 
-  const filteredCompanies = data.filter((c) => {
-    const q = debouncedQuery.toLowerCase();
-    return (
-      c.name.toLowerCase().includes(q) ||
-      c.description.toLowerCase().includes(q)
-    );
-  });
+  const filteredCompanies = data
+    ? data.filter((c) => {
+        const q = debouncedQuery.toLowerCase();
+        return (
+          c.name.toLowerCase().includes(q) ||
+          c.description.toLowerCase().includes(q)
+        );
+      })
+    : [];
 
   return (
     <SimpleGrid minChildWidth="300px" gap="30px">

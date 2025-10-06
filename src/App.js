@@ -7,7 +7,7 @@ import CardPanel from "./components/CardPanel";
 import UserContext from "./components/UserContext";
 
 function App() {
-  const [company, setCompany] = useState(1);
+  const [company, setCompany] = useState(null);
 
   return (
     <Flex direction="column" gap="40px" padding="30px" className="App">

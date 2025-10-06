@@ -38,7 +38,6 @@ export default function NavBar() {
         minW={{ base: "auto", md: "280px" }}
       >
         <InputGroup
-          border="1px solid"
           width={{ base: "calc(100% - 60px)", sm: "160px", md: "220px" }}
           maxW={{ base: "160px", md: "270px" }}
           minW="120px"
